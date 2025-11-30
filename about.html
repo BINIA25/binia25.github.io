@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Framing the Grand Narrative</title>
+    <style>
+        :root {
+            --ethiopia-green: #078C1A;
+            --ethiopia-yellow: #F9E50D;
+            --ethiopia-red: #D2101E;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            background: var(--ethiopia-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            font-weight: 600;
+            color: var(--dark-gray);
+            text-decoration: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--ethiopia-green);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-light {
+            background-color: var(--light-gray);
+        }
+        
+        h1, h2 {
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+        }
+        
+        h1 {
+            border-bottom: 3px solid var(--ethiopia-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+        
+        .partners {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .partner-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-box">GNC</div>
+                <h1>Grand Narrative Conference</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="registration.html" class="btn">Register</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1>About the Conference</h1>
+            
+            <div class="content-grid">
+                <div>
+                    <h2>Background and Rationale</h2>
+                    <p>Ethiopia's contemporary political discourse is shaped by deep historical legacies, contested narratives of nationhood, and diverging visions for the future. From the imperial era to the revolutionary period and the federal experiment, the country has experienced repeated cycles of political settlement and fragmentation.</p>
+                    <p>The National Dialogue process now underway offers a rare opportunity to engage constructively with these unresolved questions. However, dialogue alone is not sufficient. Without an agreed framework to guide the eventual formation of a Grand Narrative, the outcomes risk remaining fragmented.</p>
+                </div>
+                
+                <div class="card">
+                    <h2>Conference Details</h2>
+                    <p><strong>Date:</strong> 27-28 October 2025</p>
+                    <p><strong>Venue:</strong> Jima University Conference Hall</p>
+                    <p><strong>Participants:</strong> 200+ policymakers, academics, and leaders</p>
+                    <a href="agenda.html" class="btn" style="margin-top: 1rem;">View Full Agenda</a>
+                </div>
+            </div>
+            
+            <div class="section-light" style="padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <h2>Conference Objectives</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div class="card">
+                        <h3>Establish Consensus</h3>
+                        <p>Build broad consensus on the need for a unifying narrative that reflects Ethiopia's diversity while guiding its shared future.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Map Frameworks</h3>
+                        <p>Identify institutional, policy, and structural arrangements necessary to support the Grand Narrative formation.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Define Pathway</h3>
+                        <p>Outline a coordinated process for moving from dialogue to institutionalized consensus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Expected Outcomes</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+                <div class="card">
+                    <h3>Jima Consensus Statement</h3>
+                    <p>Affirming the national need for a Grand Narrative and outlining guiding principles.</p>
+                </div>
+                <div class="card">
+                    <h3>Framework Roadmap</h3>
+                    <p>Identifying priority reforms and institutional measures across policy and governance.</p>
+                </div>
+                <div class="card">
+                    <h3>Partnership Map</h3>
+                    <p>Detailing roles of government, academia, and media in advancing the work.</p>
+                </div>
+            </div>
+            
+            <h2>Conference Partners</h2>
+            <div class="partners">
+                <div class="partner-card">
+                    <h3>Ministry of Peace</h3>
+                    <p>Provides national leadership and coordination of media engagement.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Jima University</h3>
+                    <p>Academic host institution offering venue and research support.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Oromia Regional State</h3>
+                    <p>Provides strategic oversight and government coordination.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Jima City Municipality</h3>
+                    <p>Leads local government coordination and logistics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="logo-box" style="margin-bottom: 1rem;">GNC</div>
+                    <p>National Conference on Framing the Grand Narrative for Ethiopia</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="agenda.html">Agenda</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Jima University</li>
+                        <li>Jima Town, Ethiopia</li>
+                        <li>info@grandnarrative.et</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+                <p>&copy; 2025 National Conference - Framing the Grand Narrative</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

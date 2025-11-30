@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Framing the Grand Narrative</title>
+    <style>
+        :root {
+            --ethiopia-green: #078C1A;
+            --ethiopia-yellow: #F9E50D;
+            --ethiopia-red: #D2101E;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            background: var(--ethiopia-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            font-weight: 600;
+            color: var(--dark-gray);
+            text-decoration: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--ethiopia-green);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--ethiopia-red);
+            transform: translateY(-2px);
+        }
+        
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        h1 {
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--ethiopia-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .registration-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .form-container {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .google-form-section {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        
+        .info-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .step-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--ethiopia-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-box">GNC</div>
+                <h1>Grand Narrative Conference</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="registration.html" class="btn">Register</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1>Conference Registration</h1>
+            
+            <!-- Google Forms Registration Section -->
+            <div class="google-form-section">
+                <h2 style="text-align: center; color: var(--ethiopia-green);">Register Now</h2>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+                    Complete your registration through our secure Google Forms portal
+                </p>
+                
+                <div style="text-align: center;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe75QDs7YegWb4VbIzryuaS-XxGGU5V9P-5lP3h-MyuB_3Y0w/viewform?usp=header" 
+                       class="btn btn-large" 
+                       target="_blank"
+                       style="background-color: var(--ethiopia-green); color: white; text-decoration: none;">
+                       📝 Register via Google Forms
+                    </a>
+                    <p style="margin-top: 1rem; color: #666;">
+                        <small>You will be redirected to our secure registration form</small>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="registration-container">
+                <div class="form-container">
+                    <h2>Registration Process</h2>
+                    
+                    <div class="steps">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Click Register</h3>
+                            <p>Click the registration button above to open the Google Form</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Fill Form</h3>
+                            <p>Complete all required fields with your information</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Submit</h3>
+                            <p>Submit the form and receive confirmation</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Confirmation</h3>
+                            <p>We'll email you confirmation within 48 hours</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #e8f5e8; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                        <h3 style="color: var(--ethiopia-green); margin-bottom: 1rem;">📧 What happens next?</h3>
+                        <ul style="text-align: left; list-style: none;">
+                            <li style="margin-bottom: 0.5rem;">✅ Immediate form submission confirmation</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Registration review by our team</li>
+                            <li style="margin-bottom: 0.5rem;">✅ Confirmation email within 2 business days</li>
+                            <li>✅ All details sent to your email</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h2>Registration Information</h2>
+                    
+                    <div class="info-item">
+                        <h3>Conference Details</h3>
+                        <p><strong>Date:</strong> October 27-28, 2025</p>
+                        <p><strong>Venue:</strong> Jima University Conference Hall</p>
+                        <p><strong>Registration Deadline:</strong> October 15, 2025</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>Participation Requirements</h3>
+                        <p>Registration is required for all participants. Due to limited space, early registration is encouraged.</p>
+                        <p>Confirmation will be sent via email within 2 business days.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>Accommodation & Travel</h3>
+                        <p>Limited accommodation is available for participants traveling from outside Jima. Please indicate your needs in the registration form.</p>
+                        <p>Travel information will be provided upon registration confirmation.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>Need Help?</h3>
+                        <p>For registration assistance, please contact:</p>
+                        <p><strong>Email:</strong> registration@grandnarrative.et</p>
+                        <p><strong>Phone:</strong> +251 XX XXX XXXX</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Information Section -->
+            <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+                <h3>Important Notes</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                    <div>
+                        <h4>🔒 Data Security</h4>
+                        <p>Your information is protected through Google's secure platform. We respect your privacy.</p>
+                    </div>
+                    <div>
+                        <h4>⏱️ Quick Process</h4>
+                        <p>The registration form takes approximately 5-7 minutes to complete.</p>
+                    </div>
+                    <div>
+                        <h4>📱 Mobile Friendly</h4>
+                        <p>You can register using any device - computer, tablet, or smartphone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="logo-box" style="margin-bottom: 1rem;">GNC</div>
+                    <p>National Conference on Framing the Grand Narrative for Ethiopia</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="agenda.html">Agenda</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Jima University</li>
+                        <li>Jima Town, Ethiopia</li>
+                        <li>info@grandnarrative.et</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+                <p>&copy; 2025 National Conference - Framing the Grand Narrative</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - Framing the Grand Narrative</title>
+    <style>
+        :root {
+            --ethiopia-green: #078C1A;
+            --ethiopia-yellow: #F9E50D;
+            --ethiopia-red: #D2101E;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            background: var(--ethiopia-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            font-weight: 600;
+            color: var(--dark-gray);
+            text-decoration: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--ethiopia-green);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        h1 {
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--ethiopia-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .agenda-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--ethiopia-green);
+            font-weight: bold;
+        }
+        
+        .agenda-day {
+            display: none;
+        }
+        
+        .agenda-day.active {
+            display: block;
+        }
+        
+        .session {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .session-time {
+            color: var(--ethiopia-green);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .speakers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .speaker-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-box">GNC</div>
+                <h1>Grand Narrative Conference</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="registration.html" class="btn">Register</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1>Conference Agenda & Speakers</h1>
+            
+            <div class="agenda-tabs">
+                <div class="tab active" onclick="showDay('day1')">Day 1 - October 27</div>
+                <div class="tab" onclick="showDay('day2')">Day 2 - October 28</div>
+            </div>
+            
+            <div id="day1" class="agenda-day active">
+                <h2>Day 1: October 27, 2025</h2>
+                
+                <div class="session">
+                    <div class="session-time">09:00 - 10:30</div>
+                    <h3>Opening Session</h3>
+                    <p>Welcome remarks from CRPP, Jima University, Jima Municipality, Ministry of Peace</p>
+                    <p><strong>Keynote Address:</strong> Why Ethiopia Needs a Grand Narrative – Lessons from History and Global Practice</p>
+                </div>
+                
+                <div class="session">
+                    <div class="session-time">11:00 - 13:00</div>
+                    <h3>Session 1 – Historical and Comparative Context</h3>
+                    <p>Ethiopia's political settlements and the narratives that shaped them</p>
+                    <p>Comparative experiences from South Africa, Tunisia, Northern Ireland, and Colombia</p>
+                    <p>Panel discussion: National identity, shared memory, and political legitimacy</p>
+                </div>
+                
+                <div class="session">
+                    <div class="session-time">14:00 - 15:30</div>
+                    <h3>Session 2 – Mapping the Need and Risks</h3>
+                    <p>Risks of fragmented national discourse without a unifying narrative</p>
+                    <p>Potential political, social, and economic dividends of an agreed narrative</p>
+                    <p>Stakeholder perspectives: governance, security, cultural identity, development policy</p>
+                </div>
+            </div>
+            
+            <div id="day2" class="agenda-day">
+                <h2>Day 2: October 28, 2025</h2>
+                
+                <div class="session">
+                    <div class="session-time">09:00 - 10:30</div>
+                    <h3>Session 3 – Enabling Frameworks</h3>
+                    <p>Policy and institutional reforms to support future narrative development</p>
+                    <p>Structural arrangements for inter-ministerial and multi-sector coordination</p>
+                    <p>Intellectual stewardship: role of academia, historical scholarship, and cultural production</p>
+                </div>
+                
+                <div class="session">
+                    <div class="session-time">11:00 - 12:30</div>
+                    <h3>Session 4 – Building Momentum and Partnerships</h3>
+                    <p>Identifying key actors and their mandates</p>
+                    <p>Resource mobilization and capacity-building strategies</p>
+                    <p>Proposed sequencing toward institutionalization of the Grand Narrative</p>
+                </div>
+                
+                <div class="session">
+                    <div class="session-time">14:00 - 16:00</div>
+                    <h3>Session 5 – Synthesis and Adoption of the Jima Consensus</h3>
+                    <p>Presentation and discussion of the draft Jima Consensus Statement</p>
+                    <p>Endorsement of the Framework Roadmap and Partnership and Process Map</p>
+                </div>
+                
+                <div class="session">
+                    <div class="session-time">16:30 - 17:30</div>
+                    <h3>Closing Session</h3>
+                    <p>Reflections from senior leaders and commitment to follow-up actions</p>
+                    <p>Media briefing and public release of the conference outcomes</p>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 3rem;">Featured Speakers</h2>
+            <div class="speakers">
+                <div class="speaker-card">
+                    <h3>Senior Government Official</h3>
+                    <p>Ministry of Peace</p>
+                    <p>Keynote Speaker</p>
+                </div>
+                <div class="speaker-card">
+                    <h3>Academic Expert</h3>
+                    <p>Jima University</p>
+                    <p>Session Chair</p>
+                </div>
+                <div class="speaker-card">
+                    <h3>International Expert</h3>
+                    <p>Comparative Studies</p>
+                    <p>Panelist</p>
+                </div>
+                <div class="speaker-card">
+                    <h3>Civil Society Leader</h3>
+                    <p>National CSO</p>
+                    <p>Panelist</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="registration.html" class="btn">Register to Attend</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="logo-box" style="margin-bottom: 1rem;">GNC</div>
+                    <p>National Conference on Framing the Grand Narrative for Ethiopia</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="agenda.html">Agenda</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Jima University</li>
+                        <li>Jima Town, Ethiopia</li>
+                        <li>info@grandnarrative.et</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+                <p>&copy; 2025 National Conference - Framing the Grand Narrative</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showDay(dayId) {
+            // Hide all days
+            document.querySelectorAll('.agenda-day').forEach(day => {
+                day.classList.remove('active');
+            });
+            
+            // Show selected day
+            document.getElementById(dayId).classList.add('active');
+            
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

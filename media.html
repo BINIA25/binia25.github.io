@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - Framing the Grand Narrative</title>
+    <style>
+        :root {
+            --ethiopia-green: #078C1A;
+            --ethiopia-yellow: #F9E50D;
+            --ethiopia-red: #D2101E;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            background: var(--ethiopia-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            font-weight: 600;
+            color: var(--dark-gray);
+            text-decoration: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--ethiopia-green);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        h1 {
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--ethiopia-green);
+            padding-bottom: 0.5rem;
+        }
+        
+        .media-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--ethiopia-green);
+            font-weight: bold;
+        }
+        
+        .media-section {
+            display: none;
+        }
+        
+        .media-section.active {
+            display: block;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .gallery-image {
+            height: 200px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+        }
+        
+        .press-releases {
+            margin: 2rem 0;
+        }
+        
+        .press-item {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .press-date {
+            color: var(--ethiopia-green);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-box">GNC</div>
+                <h1>Grand Narrative Conference</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="registration.html" class="btn">Register</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1>Media Gallery</h1>
+            
+            <div class="media-tabs">
+                <div class="tab active" onclick="showMediaSection('photos')">Photos</div>
+                <div class="tab" onclick="showMediaSection('videos')">Videos</div>
+                <div class="tab" onclick="showMediaSection('press')">Press Releases</div>
+                <div class="tab" onclick="showMediaSection('media-kit')">Media Kit</div>
+            </div>
+            
+            <div id="photos" class="media-section active">
+                <h2>Conference Photos</h2>
+                <p>Visual documentation of conference preparations and events.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-image">Conference Venue</div>
+                        <div class="gallery-caption">
+                            <h3>Jima University Conference Hall</h3>
+                            <p>Main venue for the National Conference</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-image">Organizing Committee</div>
+                        <div class="gallery-caption">
+                            <h3>Planning Meeting</h3>
+                            <p>Conference organizers in preparation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-image">Jima Town</div>
+                        <div class="gallery-caption">
+                            <h3>Host City</h3>
+                            <p>Cultural elements of Jima region</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-image">Partner Logos</div>
+                        <div class="gallery-caption">
+                            <h3>Conference Partners</h3>
+                            <p>Organizations supporting the event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="videos" class="media-section">
+                <h2>Conference Videos</h2>
+                <p>Recorded sessions, interviews, and promotional content.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="display: flex; align-items: center; justify-content: center; background: #333; color: white;">
+                            Conference Promo Video
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Conference Introduction</h3>
+                            <p>Overview of objectives and importance</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="display: flex; align-items: center; justify-content: center; background: #333; color: white;">
+                            Speaker Interviews
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Expert Perspectives</h3>
+                            <p>Interviews with key speakers</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="display: flex; align-items: center; justify-content: center; background: #333; color: white;">
+                            Cultural Performances
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Cultural Events</h3>
+                            <p>Traditional performances</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="press" class="media-section">
+                <h2>Press Releases</h2>
+                <p>Official announcements and media communications.</p>
+                
+                <div class="press-releases">
+                    <div class="press-item">
+                        <div class="press-date">September 15, 2025</div>
+                        <h3>National Conference on Framing Ethiopia's Grand Narrative Announced</h3>
+                        <p>Jima University to host landmark conference on national identity and institutional reform...</p>
+                        <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem;">Read More</a>
+                    </div>
+                    
+                    <div class="press-item">
+                        <div class="press-date">August 30, 2025</div>
+                        <h3>International Experts to Join Ethiopian National Dialogue</h3>
+                        <p>Comparative experiences from South Africa, Tunisia and Northern Ireland to inform discussions...</p>
+                        <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem;">Read More</a>
+                    </div>
+                    
+                    <div class="press-item">
+                        <div class="press-date">August 15, 2025</div>
+                        <h3>Call for Participation in Grand Narrative Conference</h3>
+                        <p>Registration opens for policymakers, academics and civil society representatives...</p>
+                        <a href="#" class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem;">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="media-kit" class="media-section">
+                <h2>Media Kit</h2>
+                <p>Resources for journalists and media professionals.</p>
+                
+                <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                    <h3>Media Resources</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div>
+                            <h4>Logos & Branding</h4>
+                            <p>Official conference logos and branding guidelines</p>
+                            <a href="#" class="btn" style="padding: 0.5rem 1rem;">Download</a>
+                        </div>
+                        
+                        <div>
+                            <h4>Press Photos</h4>
+                            <p>High-resolution images for media use</p>
+                            <a href="#" class="btn" style="padding: 0.5rem 1rem;">Download</a>
+                        </div>
+                        
+                        <div>
+                            <h4>Fact Sheet</h4>
+                            <p>Key information about the conference</p>
+                            <a href="#" class="btn" style="padding: 0.5rem 1rem;">Download</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
+                    <h3>Media Contact</h3>
+                    <p>For media inquiries, interviews, and accreditation:</p>
+                    <p><strong>Email:</strong> media@grandnarrative.et</p>
+                    <p><strong>Phone:</strong> +251 XX XXX XXXX</p>
+                    <p><strong>Contact Person:</strong> Media Relations Coordinator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="logo-box" style="margin-bottom: 1rem;">GNC</div>
+                    <p>National Conference on Framing the Grand Narrative for Ethiopia</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="agenda.html">Agenda</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Jima University</li>
+                        <li>Jima Town, Ethiopia</li>
+                        <li>info@grandnarrative.et</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+                <p>&copy; 2025 National Conference - Framing the Grand Narrative</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showMediaSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.media-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

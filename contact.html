@@ -3,18 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Framing the Grand Narrative</title>
+    <title>Grand Narrative Conference - Contact</title>
     <style>
-        :root {
-            --ethiopia-green: #078C1A;
-            --ethiopia-yellow: #F9E50D;
-            --ethiopia-red: #D2101E;
-            --light-gray: #f5f5f5;
-            --dark-gray: #333333;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -22,317 +12,667 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark-gray);
+            color: #333;
+            background-color: #f8f9fa;
         }
         
-        .container {
-            width: 90%;
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(135deg, #1a2a3a, #2c3e50);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-        }
-        
-        .header-container {
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-box {
-            width: 50px;
-            height: 50px;
-            background: var(--ethiopia-green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
             color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-right: 10px;
+            text-decoration: none;
         }
         
-        nav ul {
+        .nav-links {
             display: flex;
-            list-style: none;
+            gap: 30px;
+            align-items: center;
         }
         
-        nav li {
-            margin-left: 1.5rem;
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
         }
         
-        nav a {
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .nav-links a.active {
+            color: #3498db;
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #3498db;
+        }
+        
+        .register-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
             font-weight: 600;
-            color: var(--dark-gray);
-            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--ethiopia-green);
-            color: var(--white);
+        .register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
             border: none;
-            border-radius: 4px;
-            font-weight: bold;
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+        
+        .breadcrumbs a {
+            color: #3498db;
             text-decoration: none;
         }
         
-        .section {
-            padding: 4rem 0;
+        .breadcrumbs span {
+            color: #7f8c8d;
         }
         
-        h1 {
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--ethiopia-green);
-            padding-bottom: 0.5rem;
-        }
-        
+        /* Contact Content */
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 2rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
         }
         
-        .form-container {
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 2rem;
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2c3e50;
+        }
+        
+        .contact-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .contact-header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
         }
         
-        label {
+        .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
         }
         
-        input, select, textarea {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
+            padding: 14px;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
         }
         
-        .info-container {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .contact-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .info-box h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            font-size: 1.5rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p {
+            color: #7f8c8d;
+        }
+        
+        /* Conference Partners */
+        .partners-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .partners-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .partner-logos {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        .info-card {
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 2rem;
-        }
-        
-        .partners {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
         
         .partner-card {
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
             text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
         }
         
-        footer {
-            background-color: var(--dark-gray);
-            color: var(--white);
-            padding: 3rem 0 1.5rem;
+        .partner-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .partner-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .partner-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .partner-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 20px 30px;
+            margin-top: 60px;
         }
         
         .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
-        .footer-links h3 {
-            color: var(--white);
-            margin-bottom: 1rem;
+        .footer-section h3 {
+            color: #3498db;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
         }
         
-        .footer-links ul {
+        .footer-section p {
+            color: #bdc3c7;
+            line-height: 1.8;
+        }
+        
+        .footer-links {
             list-style: none;
         }
         
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: #bdc3c7;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #2c3e50;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-container,
+            .info-box {
+                padding: 25px;
+            }
+            
+            .contact-header h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-box">GNC</div>
-                <h1>Grand Narrative Conference</h1>
-            </div>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">Grand Narrative Conference</a>
             
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="agenda.html">Agenda</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="registration.html">Registration</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="agenda.html">Agenda</a>
+                <a href="resources.html">Resources</a>
+                <a href="registration.html">Registration</a>
+                <a href="media.html">Media</a>
+                <a href="contact.html" class="active">Contact</a>
+                 <li><a href="registration.html">Registration</a></li>
             </nav>
-            
-            <a href="registration.html" class="btn">Register</a>
         </div>
     </header>
 
-    <section class="section">
-        <div class="container">
-            <h1>Contact & Partners</h1>
-            
-            <div class="contact-container">
-                <div class="form-container">
-                    <h2>Contact Us</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-email">Email Address *</label>
-                            <input type="email" id="contact-email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" required>
-                                <option value="">Select Subject</option>
-                                <option value="registration">Registration Inquiry</option>
-                                <option value="program">Program Information</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="media">Media Inquiry</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-                
-                <div class="info-container">
-                    <div class="info-card">
-                        <h2>Conference Secretariat</h2>
-                        <p><strong>Email:</strong> info@grandnarrative.et</p>
-                        <p><strong>Phone:</strong> +251 XX XXX XXXX</p>
-                        <p><strong>Address:</strong><br>
-                        Jima University Conference Hall<br>
-                        Jima Town, Ethiopia</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Contact Us</h1>
+        <p>Connect with the Grand Narrative Conference organizers. We're here to answer your questions and assist with your inquiries.</p>
+    </section>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="index.html">Home</a> &gt; <span>Contact</span>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Get In Touch</h1>
+            <p>Have questions about the Grand Narrative Conference? Reach out to us using the form below or contact our secretariat directly.</p>
+        </div>
+        
+        <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdVOR7JpGtkfIpeIs7OSGaClrsziuUj9426sxCLTKTMWxcpUg/viewform" 
+                      method="POST" 
+                      target="_blank"
+                      id="contact-form">
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name <span class="required">*</span></label>
+                        <input type="text" 
+                               id="name" 
+                               name="entry.743655517"
+                               placeholder="Enter your full name" 
+                               required>
                     </div>
                     
-                    <div class="info-card">
-                        <h2>Venue Information</h2>
-                        <p><strong>Jima University Conference Hall</strong></p>
-                        <p>Located in the heart of Jima Town, the conference hall offers modern facilities for large gatherings with capacity for 300+ participants.</p>
-                        <p>Accommodation options available within walking distance.</p>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" 
+                               id="email" 
+                               name="entry.967599631"
+                               placeholder="your.email@example.com" 
+                               required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <select id="subject" name="entry.5555555555" required>
+                            <option value="" disabled selected>Select a subject</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Registration Assistance">Registration Assistance</option>
+                            <option value="Partnership Opportunities">Partnership Opportunities</option>
+                            <option value="Media & Press">Media & Press</option>
+                            <option value="Venue Information">Venue Information</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message <span class="required">*</span></label>
+                        <textarea id="message" 
+                                  name="entry.971480960"
+                                  placeholder="Please provide details about your inquiry..." 
+                                  required
+                                  minlength="10"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        Send Message →
+                    </button>
+                    
+                    <p style="margin-top: 15px; color: #7f8c8d; font-size: 0.9rem; text-align: center;">
+                        You'll be redirected to Google Forms to complete your submission
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-info-container">
+                <!-- Conference Secretariat -->
+                <div class="info-box">
+                    <h3>Conference Secretariat</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">✉</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>info@grandnarrative.et</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+251 XX XXX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Address</h4>
+                            <p>Jima University Conference Hall<br>Jima Town, Ethiopia</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <h2 style="margin-top: 3rem;">Conference Partners</h2>
-            <div class="partners">
-                <div class="partner-card">
-                    <h3>Ministry of Peace</h3>
-                    <p>Provides national leadership for the Conference, with responsibility for coordination of national media engagement.</p>
-                </div>
                 
-                <div class="partner-card">
-                    <h3>Jima University</h3>
-                    <p>Serves as the academic host institution, offering the Conference venue and technical support.</p>
-                </div>
-                
-                <div class="partner-card">
-                    <h3>Oromia Regional State</h3>
-                    <p>Provides strategic oversight and supports resource mobilization for the Conference.</p>
-                </div>
-                
-                <div class="partner-card">
-                    <h3>Jima City Municipality</h3>
-                    <p>Leads local government coordination, including logistics and accommodation facilitation.</p>
+                <!-- Venue Information -->
+                <div class="info-box">
+                    <h3>Venue Information</h3>
+                    <p><strong>Jima University Conference Hall</strong></p>
+                    <p>Located in the heart of Jima Town, the conference hall offers modern facilities for large gatherings with capacity for 300+ participants.</p>
+                    <p style="margin-top: 10px; color: #3498db; font-weight: 600;">✓ Accommodation options available within walking distance</p>
+                    <p style="margin-top: 10px; color: #3498db; font-weight: 600;">✓ Modern audio-visual equipment</p>
+                    <p style="margin-top: 10px; color: #3498db; font-weight: 600;">✓ High-speed WiFi throughout</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Conference Partners -->
+    <section class="partners-section">
+        <h2>Conference Partners</h2>
+        <div class="partner-logos">
+            <div class="partner-card">
+                <div class="partner-icon">🏛️</div>
+                <h3>Ministry of Peace</h3>
+                <p>Provides national leadership for the Conference, with responsibility for coordination of national media engagement and strategic partnerships.</p>
+            </div>
             
-            <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-top: 2rem;">
-                <h2>Get Involved</h2>
-                <p>Interested in partnering with us or supporting the conference? Contact our partnership team at <strong>partnerships@grandnarrative.et</strong></p>
-                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                    <a href="registration.html" class="btn">Register Now</a>
-                    <a href="resources.html" class="btn" style="background-color: var(--ethiopia-yellow); color: var(--dark-gray);">View Resources</a>
-                </div>
+            <div class="partner-card">
+                <div class="partner-icon">🎓</div>
+                <h3>Jima University</h3>
+                <p>Serves as the academic host institution, providing venue, logistical support, and coordinating academic participation and research presentations.</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="logo-box" style="margin-bottom: 1rem;">GNC</div>
-                    <p>National Conference on Framing the Grand Narrative for Ethiopia</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="agenda.html">Agenda</a></li>
-                        <li><a href="registration.html">Registration</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>Jima University</li>
-                        <li>Jima Town, Ethiopia</li>
-                        <li>info@grandnarrative.et</li>
-                    </ul>
-                </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Grand Narrative Conference</h3>
+                <p>A premier academic and policy conference bringing together thought leaders, researchers, and practitioners to explore contemporary narratives shaping our world.</p>
             </div>
-            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
-                <p>&copy; 2025 National Conference - Framing the Grand Narrative</p>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Conference</a></li>
+                    <li><a href="agenda.html">Conference Agenda</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: info@grandnarrative.et</p>
+                <p>Phone: +251 XX XXX XXXX</p>
+                <p>Address: Jima University Conference Hall, Jima Town, Ethiopia</p>
             </div>
         </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 Grand Narrative Conference. All rights reserved. | This form collects data via Google Forms.</p>
+            <p style="margin-top: 10px;">Website: <a href="http://binia25.github.io" style="color: #3498db;">binia25.github.io</a></p>
+        </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            const form = this;
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                }
+            });
+            
+            if (isValid) {
+                const submitBtn = form.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Redirecting to Google Forms...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            } else {
+                e.preventDefault();
+                alert('Please fill in all required fields marked with *');
+            }
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

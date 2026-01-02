@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Framing the Grand Narrative - National Conference</title>
+    <title>Grand Narrative Conference - Ethiopia's National Dialogue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CSS Variables for consistent theming */
         :root {
-            --ethiopia-green: #078C1A;
-            --ethiopia-yellow: #F9E50D;
-            --ethiopia-red: #D2101E;
-            --light-gray: #f5f5f5;
-            --dark-gray: #333333;
+            --primary-color: #078C1A;
+            --primary-dark: #066815;
+            --accent-yellow: #F9E50D;
+            --accent-red: #D2101E;
+            --neutral-light: #f8f9fa;
+            --neutral-dark: #2c3e50;
+            --text-dark: #333333;
+            --text-light: #666666;
             --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
         }
         
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -22,253 +32,1052 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark-gray);
+            color: var(--text-dark);
             background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--neutral-dark);
+        }
+        
+        h1 {
+            font-size: 3.25rem;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-yellow));
+            border-radius: 2px;
+        }
+        
+        h2.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+            color: var(--primary-dark);
+        }
+        
+        h4 {
+            font-size: 1.3rem;
+            color: var(--neutral-dark);
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        
+        .lead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--neutral-dark);
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
         }
         
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-box {
-            width: 50px;
-            height: 50px;
-            background: var(--ethiopia-green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 1.5rem;
-        }
-        
-        nav a {
-            font-weight: 600;
-            color: var(--dark-gray);
-            text-decoration: none;
+            padding: 0 20px;
         }
         
         .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--ethiopia-green);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background-color: var(--primary-color);
             color: var(--white);
             border: none;
-            border-radius: 4px;
-            font-weight: bold;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            text-decoration: none;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), #f0f0f0;
-            background-size: cover;
-            color: var(--white);
-            padding: 8rem 0;
+            transition: var(--transition);
             text-align: center;
+            gap: 8px;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .btn:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
             color: var(--white);
         }
         
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+        .btn-large {
+            padding: 16px 40px;
+            font-size: 1.1rem;
         }
         
         .card {
             background: var(--white);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+            border-top: 4px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-top-color: var(--primary-color);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: inline-block;
         }
         
         .section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
         
         .section-light {
-            background-color: var(--light-gray);
+            background-color: var(--neutral-light);
+        }
+        
+        .section-accent {
+            background: linear-gradient(135deg, rgba(7, 140, 26, 0.05) 0%, rgba(249, 229, 13, 0.05) 100%);
         }
         
         .text-center {
             text-align: center;
         }
         
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+        
+        .mb-5 {
+            margin-bottom: 3rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-yellow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.4rem;
+            margin-bottom: 0.25rem;
+            color: var(--neutral-dark);
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+            color: var(--neutral-dark);
+            font-size: 0.95rem;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        nav a:hover:after,
+        nav a.active:after {
+            width: 100%;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            padding: 0.5rem;
+        }
+        
+        /* Header Partners - LOGOS FIXED TO SHOW COLOR */
+        .header-partners {
+            background-color: var(--neutral-light);
+            padding: 0.75rem 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-partners-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .partners-label {
+            font-weight: 600;
+            color: var(--neutral-dark);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .partners-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .partner-logo-small {
+            height: 32px;
+            width: auto;
+            max-width: 120px;
+            opacity: 1;
+            transition: var(--transition);
+            filter: none;
+        }
+        
+        .partner-logo-small:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 6rem 0;
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--white), transparent);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero .lead {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Highlights Section */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .highlight-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            padding-right: 2rem;
+        }
+        
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Conference Details */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .detail-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Partners Section - LOGOS FIXED TO SHOW COLOR */
+        .partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .partner-logo {
+            height: 90px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            filter: none;
+            opacity: 1;
+            transition: var(--transition);
+            padding: 0.5rem;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
         /* Footer */
         footer {
-            background-color: var(--dark-gray);
-            color: var(--white);
-            padding: 3rem 0 1.5rem;
+            background-color: var(--neutral-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1rem;
         }
         
         .footer-links h3 {
             color: var(--white);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
         
         .footer-links ul {
             list-style: none;
         }
         
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            color: white;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer Partners - LOGOS FIXED TO SHOW COLOR */
+        .footer-partners {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-partners h4 {
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-partners-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-partner-logo {
+            height: 40px;
+            width: auto;
+            max-width: 120px;
+            opacity: 1;
+            transition: var(--transition);
+        }
+        
+        .footer-partner-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 2.75rem;
+            }
+            
+            h2 {
+                font-size: 2.25rem;
+            }
+            
+            .about-content {
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .header-partners-container {
+                justify-content: center;
+            }
+            
+            .partners-label {
+                display: none;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-text {
+                padding-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                order: 1;
+            }
+            
+            .logo {
+                order: 0;
+            }
+            
+            .header-actions {
+                order: 2;
+            }
+            
+            nav {
+                width: 100%;
+                order: 3;
+                display: none;
+                margin-top: 1rem;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            nav li {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            nav a {
+                display: block;
+                padding: 1rem 0;
+            }
+            
+            .hero {
+                padding: 5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .partner-logo-small {
+                height: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+            }
+            
+            .partner-logo {
+                height: 70px;
+                max-width: 150px;
+            }
+            
+            .partner-logo-small {
+                height: 24px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <div class="logo-box">GNC</div>
-                <h1>Grand Narrative Conference</h1>
+                <div class="logo-icon">
+                    GNC
+                </div>
+                <div class="logo-text">
+                    <h1>Grand Narrative Conference</h1>
+                    <p>Ethiopia's National Dialogue</p>
+                </div>
             </div>
             
-            <nav>
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="main-nav">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="speakers.html">Speakers</a></li>
                     <li><a href="resources.html">Resources</a></li>
                     <li><a href="registration.html">Registration</a></li>
-                    <li><a href="media.html">Media</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             
-            <a href="registration.html" class="btn">Register</a>
+            <div class="header-actions">
+                <a href="registration.html" class="btn">
+                    <i class="fas fa-user-plus"></i> Register
+                </a>
+            </div>
+        </div>
+        
+        <!-- Partner Logos Bar -->
+        <div class="header-partners">
+            <div class="container header-partners-container">
+                <div class="partners-label">In Partnership With:</div>
+                <div class="partners-logos">
+                    <img src="assets/logos/crpp.jpeg" alt="CRPP" class="partner-logo-small">
+                    <img src="assets/logos/oromia-region.png" alt="Oromia Regional State" class="partner-logo-small">
+                    <img src="assets/logos/ministry-of-peace.png" alt="Ministry of Peace" class="partner-logo-small">
+                    <img src="assets/logos/jima-university.png" alt="Jima University" class="partner-logo-small">
+                    <img src="assets/logos/jima-municipality.png" alt="Jima Municipality" class="partner-logo-small">
+                    </div>
+            </div>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Framing the Grand Narrative</h1>
-            <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2rem;">
-                Affirming the Need and Outlining the Frameworks for its Institutionalization in Ethiopia
-            </p>
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                <a href="registration.html" class="btn">Register Now</a>
-                <a href="about.html" class="btn" style="background-color: var(--ethiopia-yellow); color: var(--dark-gray);">Learn More</a>
+            <div class="hero-content">
+                <h1>Framing the Grand Narrative for Ethiopia</h1>
+                <p class="lead">A National Conference on Affirming the Need and Outlining Frameworks for Institutionalizing Ethiopia's Unifying Narrative</p>
+                <div class="hero-buttons">
+                    <a href="registration.html" class="btn btn-large">
+                        <i class="fas fa-calendar-check"></i> Register Now
+                    </a>
+                    <a href="#about" class="btn btn-large btn-outline">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Conference Highlights -->
     <section class="section">
         <div class="container">
-            <h2 class="text-center">Conference Highlights</h2>
+            <h2 class="text-center mb-5">Conference Highlights</h2>
             <div class="highlights">
-                <div class="card">
+                <div class="card highlight-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
                     <h3>Date & Venue</h3>
-                    <p>27-28 October 2025<br>Jima University Conference Hall</p>
+                    <p>26-27 January 2026<br><strong>HAILE </strong><br>Jima, Ethiopia</p>
                 </div>
-                <div class="card">
-                    <h3>Participants</h3>
-                    <p>200+ national leaders, experts, and professionals</p>
-                </div>
-                <div class="card">
+                
+                <div class="card highlight-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
                     <h3>Objectives</h3>
-                    <p>Establish consensus on Ethiopia's unifying narrative</p>
+                    <p>Establish consensus on a unifying national narrative that reflects Ethiopia's diversity while building shared purpose and national identity.</p>
                 </div>
-                <div class="card">
+                
+                <div class="card highlight-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Participants</h3>
+                    <p>200+ national leaders, policy experts, academics, civil society representatives, and media professionals from across Ethiopia.</p>
+                </div>
+                
+                <div class="card highlight-card">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
                     <h3>Sessions</h3>
-                    <p>5 thematic sessions exploring frameworks</p>
+                    <p>5 thematic sessions exploring historical context, policy frameworks, institutional mechanisms, and implementation pathways.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section section-light">
-        <div class="container text-center">
-            <h2>About the Conference</h2>
-            <p style="max-width: 800px; margin: 0 auto 2rem;">
-                Ethiopia's political discourse is shaped by historical legacies and diverging visions. 
-                This conference offers an opportunity to engage with unresolved questions and outline 
-                frameworks for institutionalizing a Grand Narrative.
-            </p>
-            <a href="about.html" class="btn">Learn More</a>
+    <!-- About Section -->
+    <section id="about" class="section section-light">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About the Conference</h2>
+                    <p class="lead">Ethiopia stands at a critical juncture in its history, where the need for a unifying national narrative has never been more pressing.</p>
+                    <p>Our contemporary political discourse is shaped by deep historical legacies, contested narratives of nationhood, and diverging visions for the future. This fragmentation poses significant challenges to national cohesion, development, and democratic consolidation.</p>
+                    <p>This National Conference offers a platform for constructive dialogue among Ethiopia's diverse stakeholders to outline frameworks for institutionalizing a Grand Narrative that recognizes our rich diversity while establishing shared national purpose.</p>
+                    <a href="about.html" class="btn">
+                        <i class="fas fa-book-open"></i> Read Full Concept Note
+                    </a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Ethiopian cultural heritage">
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Conference Details -->
+    <section class="section section-accent">
+        <div class="container">
+            <h2 class="text-center mb-5">Conference Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Venue</h3>
+                        <p>Jima University Conference Hall, Jima Town, Oromia Regional State, Ethiopia. The venue offers state-of-the-art facilities for plenary sessions and breakout discussions.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Format</h3>
+                        <p>Two-day conference featuring keynote addresses, panel discussions, working groups, and plenary sessions. Hybrid participation available for international attendees.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div>
+                        <h3>Languages</h3>
+                        <p>Simultaneous translation in Amharic, Oromiffa, English, and other Ethiopian languages will be provided to ensure inclusive participation.</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Outcomes</h3>
+                        <p>The conference will produce a policy framework document and roadmap for institutionalizing Ethiopia's Grand Narrative through education, media, and cultural institutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Conference Partners</h2>
+            <p class="text-center lead mb-5">This national initiative is made possible through the collaboration of key institutions committed to Ethiopia's unity and development.</p>
+            <div class="partners">
+                <img src="assets/logos/crpp.jpeg" alt="CRPP" class="partner-logo">
+                <img src="assets/logos/oromia-region.png" alt="Oromia Regional State" class="partner-logo">
+                <img src="assets/logos/ministry-of-peace.png" alt="Ministry of Peace" class="partner-logo">
+                <img src="assets/logos/jima-university.png" alt="Jima University" class="partner-logo">
+                <img src="assets/logos/jima-municipality.png" alt="Jima Municipality" class="partner-logo">
+                </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section section-light">
+        <div class="container text-center">
+            <h2>Join the National Conversation</h2>
+            <p class="lead mb-4">Be part of shaping Ethiopia's unifying narrative for generations to come.</p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="registration.html" class="btn btn-large">
+                    <i class="fas fa-user-plus"></i> Register to Attend
+                </a>
+                <a href="resources.html" class="btn btn-large btn-outline">
+                    <i class="fas fa-download"></i> Download Resources
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="logo-box" style="margin-bottom: 1rem;">GNC</div>
-                    <p>National Conference on Framing the Grand Narrative for Ethiopia</p>
+            <!-- Footer Partners Section -->
+            <div class="footer-partners">
+                <h4>Co-Hosted By</h4>
+                <div class="footer-partners-logos">
+                     <img src="assets/logos/oromia-region.png" alt="Oromia Region" class="footer-partner-logo">
+                    <img src="assets/logos/ministry-of-peace.png" alt="Ministry of Peace" class="footer-partner-logo">
+                    <img src="assets/logos/jima-university.png" alt="Jima University" class="footer-partner-logo">
+                    <img src="assets/logos/jima-municipality.png" alt="Jima Municipality" class="footer-partner-logo">
+                    <img src="assets/logos/crpp.jpeg" alt="CRPP" class="footer-partner-logo">
                 </div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        GNC
+                    </div>
+                    <p>National Conference on Framing the Grand Narrative for Ethiopia</p>
+                    <p>26-27 January 2026<br>Jima University, Ethiopia</p>
+                </div>
+                
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="agenda.html">Agenda</a></li>
+                        <li><a href="about.html">About Conference</a></li>
+                        <li><a href="agenda.html">Conference Agenda</a></li>
+                        <li><a href="speakers.html">Speakers</a></li>
                         <li><a href="registration.html">Registration</a></li>
                     </ul>
                 </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="resources.html">Concept Note</a></li>
+                        <li><a href="resources.html">Background Papers</a></li>
+                        <li><a href="resources.html">Conference Materials</a></li>
+                        <li><a href="resources.html">Publications</a></li>
+                        <li><a href="resources.html">Media Kit</a></li>
+                    </ul>
+                </div>
+                
                 <div class="footer-links">
                     <h3>Contact</h3>
                     <ul>
-                        <li>Jima University</li>
-                        <li>Jima Town, Ethiopia</li>
-                        <li>info@grandnarrative.et</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jima University Conference Hall</li>
+                        <li><i class="fas fa-envelope"></i> info@grandnarrative.et</li>
+                        <li><i class="fas fa-phone"></i> +251 XX XXX XXXX</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri, 9:00 AM - 5:00 PM</li>
                     </ul>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
-                <p>&copy; 2025 National Conference - Framing the Grand Narrative</p>
+            
+            <div class="copyright">
+                <p>&copy; 2025 National Conference - Framing the Grand Narrative for Ethiopia. All rights reserved.</p>
             </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+            this.innerHTML = document.getElementById('main-nav').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('main-nav').classList.remove('active');
+                document.getElementById('mobile-menu-toggle').innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to current page in navigation
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('#main-nav a').forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if(linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
 </html>
